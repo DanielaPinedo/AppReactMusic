@@ -1,0 +1,38 @@
+
+.DataSongCont{
+    background-color: rgb(255, 255, 255);
+    color: black;
+    text-align: left;
+    font-size: 1rem;
+    margin: 0 0 3% 3%;
+    width: 80%;
+    height: 25%;
+    padding: 5%;
+}
+
+.TitleSongContent{
+    background-color: #008080;
+    color: #ffff;
+    text-align: left;
+    font-size: 0.8rem;
+    font-family: Josefin Sans,sans-serif;
+    margin: 3% 0 0 0;
+    width: 80%;
+    padding: 0.5%;
+    height: max-content;
+    
+
+}
+
+.TitleSongletter{
+    margin-left: 5%;
+}
+
+.InfoSongCont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Josefin Sans,sans-serif;
+    box-shadow: 10px 10px 40px -12px rgba(0,0,0,0.75);
+    width: 100%;
+}
