@@ -1,20 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types'; 
 //import {IoIosMusicalNotes} from "react-icons/io";
 //<IoIosMusicalNotes className="Icon"/>
 import './styles.css' 
 
-const TitleSong = ({title}) =>(
-    <div className="TitleSongContent">
-         <h3 className = "TitleSongletter">
-         {title}
-        </h3>
-    </div>
-    );
+class TitleSong extends Component {
+    constructor(props){
+        super(props);
+        const {title} = props;
+        // this.satate solo se usa en el constructor
+        this.state = {
+            title
+        };
+    };
 
-    TitleSong.propTypes = {
-        title: PropTypes.string.isRequired,
+    render (){
+        const{title} = this.state;
+        const{onTitleClick} = this.props;
+        return(
+            <div className="TitleSongContent" onClick={onTitleClick}>
+                <h3 className = "TitleSongletter">
+                    {title}
+                </h3>
+            </div>
+        );
     }
+
+        
+}
+
+TitleSong.propTypes = {
+    title: PropTypes.string.isRequired,
+    TitleClick: PropTypes.func,
+}
 
 
 export default TitleSong;

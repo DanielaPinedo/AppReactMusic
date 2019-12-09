@@ -7,8 +7,6 @@ const DataSong = ({data : {singer,genre} }) =>(
             <li>Genero: {genre}</li>
     </div>
 );
-   
-
 DataSong.propTypes = {
     data: PropTypes.shape({
         singer: PropTypes.string.isRequired,
