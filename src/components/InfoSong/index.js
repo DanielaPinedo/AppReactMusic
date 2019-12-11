@@ -5,6 +5,8 @@ import getURL from './../../Services/getURL';
 import TitleSong from './TitleSong';
 import DataSong from './DataSong';
 import transformData from './../../Services/transformData';
+import {Grid, Col, Row} from 'react-flexbox-grid';
+
 import './styles.css';
 
 /*const InfoSong = () => (
@@ -47,23 +49,44 @@ class InfoSong extends Component{
 
     render (){
         const{title,data} = this.state;
-        const handleTitleClick = (title,onSelectedTitle) =>{
+        const handleTitleClick = (title) =>{
             console.log(title);
-            onSelectedTitle(title);
         };
         return(
-            <div className="InfoSongCont">
-                {<TitleSong title= {title}
-                    onTitleClick ={()=>handleTitleClick(title)}
-                />}
-                {data?<DataSong  data= {data}></DataSong>:<CircularProgress/>}
-            </div>
+            <Grid fluid>
+                <Row center="xs">
+                    <Col xs={10} sm={6} md= {3} lg={3}>
+                        {<TitleSong title= {title}
+                        onTitleClick ={()=>handleTitleClick(title)}
+                        />}
+                        {data?<DataSong  data= {data}></DataSong>:<CircularProgress/>}
+                    </Col>
+                    <Col xs={10} sm={6} md= {3} lg={3}>
+                        {<TitleSong title= {title}
+                        onTitleClick ={()=>handleTitleClick(title)}
+                        />}
+                        {data?<DataSong  data= {data}></DataSong>:<CircularProgress/>}
+                    </Col>
+                    <Col xs={10} sm={6} md= {3} lg={3}>
+                        {<TitleSong title= {title}
+                        onTitleClick ={()=>handleTitleClick(title)}
+                        />}
+                        {data?<DataSong  data= {data}></DataSong>:<CircularProgress/>}
+                    </Col>
+                    <Col xs={10} sm={6} md= {3} lg={3}>
+                        {<TitleSong title= {title}
+                        onTitleClick ={()=>handleTitleClick(title)}
+                        />}
+                        {data?<DataSong  data= {data}></DataSong>:<CircularProgress/>}
+                    </Col>
+                </Row>
+
+            </Grid>
         );
     }
 }
 
 InfoSong.propTypes ={
     title: PropTypes.string.isRequired,
-    onSelectedTitle: PropTypes.func,
 }
 export default InfoSong;
