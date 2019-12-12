@@ -35,16 +35,32 @@ class InfoSong extends Component{
     };
 
     handleUpdateClick = () =>{
-        const api_weather = getURL(this.state.title);
-        fetch (api_weather).then(resolve=>{
-        return resolve.json();
-    }).then( data => {
-        const newData = transformData(data);
-        this.setState({
-            title: this.state.title,
-            data: newData.details,
+        const toke = window.location.hash;
+        if (!toke) window.location.href = getURL();
+        else{
+            const token0 = toke.split("&");
+            const token1 = token0[0].split ("=");
+            console.log(token1[1]);
+            const url = "https://api.spotify.com/v1/playlists/37i9dQZF1DX9L93gfg5cPa/tracks";
+            const config = {
+                method: 'GET',
+               headers: {
+                   'Accept': 'application/json',
+                   'Content-Type': 'application/json',
+                   'Authorization': `Bearer ${token1[1]}`
+               }
+            }
+            fetch(url,config).then( resolve => {
+                return resolve.json();
+            }).then (data => {
+                const newData = transformData(data);
+                this.setState({
+                    title: newData.title,
+                    data: newData.details,
+                    
+                });     
             });
-        });     
+        }
     }
 
     render (){

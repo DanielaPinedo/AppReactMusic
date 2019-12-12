@@ -1,7 +1,7 @@
-import {url,api_key} from './../constants/api_url';
+import {client_id,response_type,url,redirect_uri,scope} from './../constants/api_url';
 
-const getURL = title => {
-    return `${url}${title}&appid=${api_key}`;
+const getURL = () => {
+    return `${url}client_id=${client_id}&response_type=${response_type}&redirect_uri=${redirect_uri}&scope=${scope}`;
 }
 
 export default getURL;
